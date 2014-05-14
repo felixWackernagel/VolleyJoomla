@@ -59,3 +59,24 @@ Category Example
 		final RequestQueue queue = Volley.newRequestQueue( this );
   		queue.add( request );
 	}
+
+Pojos and Requests
+==================
+
+*Following request are available:*
+* JLoginRequest
+* JCategoriesRequest
+* JArticlesRequest
+* JArticleDetailsRequest
+* JRequest
+* GsonJRequest
+
+*Following POJOS are available:*
+* JWebsite
+* JConfiguration
+* JCategory
+* JArticle
+
+All POJOS except the JWebsite class implement the Parcelable interface and be simple transfered between
+Activities or Fragments. The JWebsite object is only needed for the login process and stored no password.
+The JConfiguration object is bound to one website and be reused for all requests to this bound website.
