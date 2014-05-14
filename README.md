@@ -78,5 +78,14 @@ Pojos and Requests
 * JArticle
 
 All POJOS except the JWebsite class implement the Parcelable interface and be simple transfered between
-Activities or Fragments. The JWebsite object is only needed for the login process and stored no password.
-The JConfiguration object is bound to one website and be reused for all requests to this bound website.
+Activities or Fragments. 
+
+	private void showDetails( JConfiguration configuration, JArticle article ) {
+		Intent details = new Intent( context, ArticleDetailsActivity.class );
+		details.putExtra( "my_config", configuration );
+		details.putExtra( "my_article", article );
+		startActivity( details );
+	}
+	
+The JWebsite object is only needed for the login process and stored no password.
+The JConfiguration object is bound to one website and can be reused for all requests to this bound website.
