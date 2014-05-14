@@ -6,9 +6,9 @@ Based on android volley library contains this library several requests to intera
 Example
 =======
 
-private void loginToJoomla() {
-  // SETUP YOU WEBSITE DATA WHICH ARE PREVIOUSLY SET ON YOUR JOOMLA API
-  final String host = "http://www.MY-JOOMLA-PAGE.com";
+	private void loginToJoomla() {
+  		// SETUP YOU WEBSITE DATA WHICH ARE PREVIOUSLY SET ON YOUR JOOMLA API
+  		final String host = "http://www.MY-JOOMLA-PAGE.com";
   final String username = "api_user";
   final String password = "api_password";
   final String uuid = "api_user_id";
@@ -20,9 +20,9 @@ private void loginToJoomla() {
 			// THE CONFIGURATION OBJECT IS YOUR AUTHORISATION FOR MORE REQUESTS
 		}
 	};
-	
+		
 	final ErrorListener onErrorListener = new ErrorListener(){
-		@Override
+	  @Override
 	  public void onErrorResponse(VolleyError error) {
 		  
 	  }
