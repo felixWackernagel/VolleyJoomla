@@ -3,8 +3,8 @@ VolleyJoomla
 
 Based on android volley library contains this library several requests to interact with a joomla api to retrieve categories and articles. The goal is to simple extend existing requests to create faster new ones.
 
-Login Example
-=============
+## Login Example
+
 ```java
 private void loginToJoomla() {
   	// SETUP YOU WEBSITE DATA WHICH ARE PREVIOUSLY SET ON YOUR JOOMLA API
@@ -36,35 +36,34 @@ private void loginToJoomla() {
 }
 ```
 
-Category Example
-================
+## Category Example
 
-	private void showJoomlaCategories( JConfiguration configuration ) {
-		// PREPARE YOUR CALLBACK LISTENER
-  		final Listener<JCategory[]> onCategoriesLoadedListener = new Listener<JCategory[]>(){
-			@Override
-			public void onResponse( JCategory[] categories ) {
-				// DO SOMETHING WITH THE CATEGORIES
-			}
-		};
-		
-		final ErrorListener onErrorListener = new ErrorListener(){
-	  		@Override
-	  		public void onErrorResponse(VolleyError error) {
-		  
-	  		}
-		};
-		
-		// CREATE THE REQUEST
-		final Request<?> request = new JCategoriesRequest( configuration, onCategoriesLoadedListener, onErrorListener )
-		final RequestQueue queue = Volley.newRequestQueue( this );
-  		queue.add( request );
-	}
+```java
+private void showJoomlaCategories( JConfiguration configuration ) {
+	// PREPARE YOUR CALLBACK LISTENER
+  	final Listener<JCategory[]> onCategoriesLoadedListener = new Listener<JCategory[]>(){
+		@Override
+		public void onResponse( JCategory[] categories ) {
+			// DO SOMETHING WITH THE CATEGORIES
+		}
+	};
+	
+	final ErrorListener onErrorListener = new ErrorListener(){
+  		@Override
+  		public void onErrorResponse(VolleyError error) {
+	  
+  		}
+	};
+	
+	// CREATE THE REQUEST
+	final Request<?> request = new JCategoriesRequest( configuration, onCategoriesLoadedListener, onErrorListener )
+	final RequestQueue queue = Volley.newRequestQueue( this );
+  	queue.add( request );
+}
+```
+## Pojos and Requests
 
-Pojos and Requests
-==================
-
-*Following request are available:*
+Following request are available:
 * JLoginRequest
 * JCategoriesRequest
 * JArticlesRequest
@@ -72,7 +71,7 @@ Pojos and Requests
 * JRequest
 * GsonJRequest
 
-*Following POJOS are available:*
+Following POJOS are available:
 * JWebsite
 * JConfiguration
 * JCategory
@@ -80,13 +79,18 @@ Pojos and Requests
 
 All POJOS except the JWebsite class implement the Parcelable interface and be simple transfered between
 Activities or Fragments. 
-
-	private void showDetails( JConfiguration configuration, JArticle article ) {
-		Intent details = new Intent( context, ArticleDetailsActivity.class );
-		details.putExtra( "my_config", configuration );
-		details.putExtra( "my_article", article );
-		startActivity( details );
-	}
-	
+```java
+private void showDetails( JConfiguration configuration, JArticle article ) {
+	Intent details = new Intent( context, ArticleDetailsActivity.class );
+	details.putExtra( "my_config", configuration );
+	details.putExtra( "my_article", article );
+	startActivity( details );
+}
+```
 The JWebsite object is only needed for the login process and stored no password.
 The JConfiguration object is bound to one website and can be reused for all requests to this bound website.
+
+## License
+Apache License v2
+
+See LICENSE for full license text.
