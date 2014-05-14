@@ -3,8 +3,8 @@ VolleyJoomla
 
 Based on android volley library contains this library several requests to interact with a joomla api to retrieve categories and articles. The goal is to simple extend existing requests to create faster new ones.
 
-Example
-=======
+Login Example
+=============
 
 	private void loginToJoomla() {
   		// SETUP YOU WEBSITE DATA WHICH ARE PREVIOUSLY SET ON YOUR JOOMLA API
@@ -32,5 +32,30 @@ Example
 		final JWebsite website = new JWebsite(host, username, password, uuid);
 		final Request<?> request = new JLoginRequest( website, onLoginSuccessListener, onErrorListener );
   		final RequestQueue queue = Volley.newRequestQueue( this );
+  		queue.add( request );
+	}
+
+Category Example
+================
+
+	private void showJoomlaCategories( JConfiguration configuration ) {
+		// PREPARE YOUR CALLBACK LISTENER
+  		final Listener<JCategory[]> onCategoriesLoadedListener = new Listener<JCategory[]>(){
+			@Override
+			public void onResponse( JCategory[] categories ) {
+				// DO SOMETHING WITH THE CATEGORIES
+			}
+		};
+		
+		final ErrorListener onErrorListener = new ErrorListener(){
+	  		@Override
+	  		public void onErrorResponse(VolleyError error) {
+		  
+	  		}
+		};
+		
+		// CREATE THE REQUEST
+		final Request<?> request = new JCategoriesRequest( configuration, onCategoriesLoadedListener, onErrorListener )
+		final RequestQueue queue = Volley.newRequestQueue( this );
   		queue.add( request );
 	}
