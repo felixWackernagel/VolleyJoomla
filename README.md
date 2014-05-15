@@ -5,7 +5,7 @@ Android library that provides an extension to [Volley][1] that create several re
 
 ## Changelog
 
-**Latest version: 1.0.0 (14.05.2014) **
+**Latest version: 1.0.0 (14.05.2014)**
 
 * [Library JAR][4]
 
